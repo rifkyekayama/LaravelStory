@@ -12,6 +12,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 </head>
 <body>
     <div id="app">
@@ -71,7 +72,26 @@
             </div>
         </nav>
 
-        @yield('content')
+        <div class="container">
+            <div class="row">
+                @if (Auth::guest())
+                    <div class="col-md-12">
+                        @yield('content')
+                    </div>
+                @else
+                    <div class="col-md-4">
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        @yield('content')
+                    </div>
+                @endif
+            </div>
+        </div>
     </div>
 
     <!-- Scripts -->
