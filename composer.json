@@ -12,7 +12,9 @@
         "laravel/scout": "^3.0",
         "laravel/socialite": "^3.0",
         "laravel/tinker": "~1.0",
-        "ramsey/uuid": "^3.6"
+        "ramsey/uuid": "^3.6",
+        "sentry/sentry": "^1.7",
+        "sentry/sentry-laravel": "^0.7.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
