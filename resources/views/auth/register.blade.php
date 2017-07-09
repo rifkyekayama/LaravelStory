@@ -72,7 +72,7 @@
                         </div>
                         <div class="col-md-6">
                             <a href="/login/facebook" class="btn btn-default">Facebook</a>
-                            <a href="" class="btn btn-default">Twitter</a>
+                            <a href="/login/twitter" class="btn btn-default">Twitter</a>
                             <a href="/login/github" class="btn btn-default">Github</a>
                         </div>
                     </div>

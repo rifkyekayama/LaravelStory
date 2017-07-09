@@ -3,8 +3,9 @@
  * Created by PhpStorm.
  * User: krisnawijaya
  * Date: 7/9/17
- * Time: 5:54 PM
+ * Time: 6:11 PM
  */
+
 namespace App\Http\Controllers\Auth;
 
 use App\User;
@@ -14,7 +15,7 @@ use Socialite;
 use Log;
 use Illuminate\Support\Facades\Auth;
 
-class FacebookController extends Controller
+class TwitterController extends Controller
 {
     /**
      * Redirect the user to the Twitter authentication page.
@@ -23,7 +24,7 @@ class FacebookController extends Controller
      */
     public function redirectToProvider()
     {
-        return Socialite::driver('facebook')->redirect();
+        return Socialite::driver('twitter')->redirect();
     }
 
     /**
@@ -33,7 +34,7 @@ class FacebookController extends Controller
      */
     public function handleProviderCallback()
     {
-        $user = Socialite::driver('facebook')->user();
+        $user = Socialite::driver('twitter')->user();
 
         $authUser = $this->findORCreateUser($user);
 
@@ -42,17 +43,27 @@ class FacebookController extends Controller
         return redirect()->intended('/home');
     }
 
-    private function findORCreateUser($facebook)
+    private function findORCreateUser($twitter)
     {
-        if ($authUser = User::where('facebook_id', $facebook->id)->first()) {
+        if ($authUser = User::where('twitter_id', $twitter->id)->first()) {
             return $authUser;
         }
 
         return User::create([
             'id' => Uuid::uuid4(),
-            'facebook_id' => $facebook->id,
-            'name' => $facebook->name,
-            'email' => $facebook->email
+            'twitter_id' => $twitter->id,
+            'name' => $twitter->name,
+            'email' => $twitter->email
         ]);
+    }
+
+    public function privacyPolicy()
+    {
+        return view('privacy.privacy-policy');
+    }
+
+    public function termsOfService()
+    {
+        return view('privacy.privacy-policy');
     }
 }
