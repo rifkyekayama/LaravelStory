@@ -36,4 +36,7 @@ Route::group(['namespace' => 'Auth'], function () {
 
     Route::get('/login/twitter/privacy-policy', 'TwitterController@privacyPolicy');
     Route::get('/login/twitter/terms-of-service', 'TwitterController@termsOfService ');
+
 });
+
+Route::get('/google/maps', 'GoogleMapsController@index');

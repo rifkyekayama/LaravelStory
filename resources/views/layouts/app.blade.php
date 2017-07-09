@@ -82,7 +82,12 @@
                     <div class="col-md-4">
                         <div class="panel panel-default">
                             <div class="panel-body">
-
+                                <ul class="nav nav-pills nav-stacked">
+                                    <li class="{{ Request::is('/') ? 'active' : '' }}"><a href="">Dasboard</a></li>
+                                    <li class="{{ Request::is('/google/maps'. '/*') ? 'active' : '' }}">
+                                        <a href="/google/maps">Google Maps</a>
+                                    </li>
+                                </ul>
                             </div>
                         </div>
                     </div>
