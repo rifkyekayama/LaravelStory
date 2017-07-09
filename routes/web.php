@@ -20,5 +20,13 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 //Authentication
-Route::get('/login/github', 'Auth\GithubController@redirectToProvider');
-Route::get('/login/github/callback', 'Auth\GithubController@handleProviderCallback');
+Route::group(['namespace' => 'Auth'], function () {
+
+    // Login and Register With Github Account
+    Route::get('/login/github', 'GithubController@redirectToProvider');
+    Route::get('/login/github/callback', 'GithubController@handleProviderCallback');
+
+    // Login and Register With Facebook Account
+    Route::get('/login/facebook', 'FacebookController@redirectToProvider');
+    Route::get('/login/facebook/callback', 'FacebookController@handleProviderCallback');
+});
