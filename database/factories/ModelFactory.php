@@ -16,9 +16,21 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
     static $password;
 
     return [
-        'name' => $faker->name,
-        'email' => $faker->unique()->safeEmail,
-        'password' => $password ?: $password = bcrypt('secret'),
-        'remember_token' => str_random(10),
+        'name'              => $faker->name,
+        'email'             => $faker->unique()->safeEmail,
+        'password'          => $password ?: $password = bcrypt('secret'),
+        'remember_token'    => str_random(10),
+    ];
+});
+
+
+$factory->define(App\Scout::class, function (Faker\Generator $faker) {
+
+    return [
+        'scout_id'      => $faker->uuid,
+        'scout_name'    => $faker->name,
+        'scout_email'   => $faker->unique()->safeEmail,
+        'scout_address' => $faker->address,
+        'scout_bio'     => $faker->text(50),
     ];
 });
