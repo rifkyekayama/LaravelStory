@@ -40,3 +40,8 @@ Route::group(['namespace' => 'Auth'], function () {
 });
 
 Route::get('/google/maps', 'GoogleMapsController@index');
+
+Route::get('/scout', 'ScoutController@index');
+Route::post('/scout', 'ScoutController@index');
+
+Route::get('/timer', 'TimerController@index');

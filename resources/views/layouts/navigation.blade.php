@@ -12,6 +12,12 @@
                     </li>
                 </ul>
             </li>
+            <li class="{{ Request::is('scout') ? 'active' : '' }}">
+                <a href="/scout">Laravel Scout</a>
+            </li>
+            <li class="{{ Request::is('timer') ? 'active' : '' }}">
+                <a href="/timer">Timer</a>
+            </li>
         </ul>
     </div>
 </div>
